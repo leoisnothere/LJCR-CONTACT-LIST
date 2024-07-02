@@ -1,0 +1,12 @@
+img{
+    border-radius: 50rem;
+    width: 150px;
+    height:150px;
+}
+.add{
+    font-size: 20px;
+}
+.fullCard{
+    background: #e7ebda;
+    border:1px solid black;
+}

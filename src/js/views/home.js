@@ -1,15 +1,70 @@
-import React from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
+import React, { useContext } from "react";
 import "../../styles/home.css";
+import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
-export const Home = () => (
-	<div className="text-center mt-5">
-		<h1>Hello Rigo!</h1>
-		<p>
-			<img src={rigoImage} />
-		</p>
-		<a href="#" className="btn btn-success">
-			If you see this green button, bootstrap is working
-		</a>
-	</div>
-);
+export const Home = () => {
+	const { store, actions } = useContext(Context);
+	
+	
+	const alertDelete = (contact) => {
+		Swal.fire({
+			title: "Advertencia",
+			text: "¿Desea eliminar el contacto?", position: "center",
+			icon: "error",
+			showDenyButton: true,
+			denyButtonText: "No",
+			confirmButtonText: "Si"
+		}).then(click => {
+			if (click.isConfirmed) {
+				actions.deleteContacts(contact);
+				Swal.fire('Éxito', 'El contacto se elimino correctamente', 'success')
+			} else {
+				return
+			}
+		});
+	}
+	return (
+		<div className="container text-center mt-5">
+			<div className="d-flex justify-content-end mb-2">
+			<Link to={("/createContact")} className="btn btn-primary">
+						Agregar Nuevo Contacto
+				</Link>
+			</div>
+			{store.contacts.length > 0 ? store.contacts.map((contact) => {
+				return (
+					<div className="card" key={contact.id}>
+						<div className="card-body fullCard d-flex justify-content-around">
+							<div className="col-sm d-flex justify-content-center">
+								<img
+									src="https://picsum.photos/200/300?grayscale"
+									className=""
+									alt="..."
+								/>
+							</div>
+							<div className="col-sm text-start">
+								<h5 className="card-title">{contact.name}</h5>
+								<p className="card-text">{contact.phone}</p>
+								<p className="card-text">{contact.email}</p>
+								<p className="card-text">{contact.address}</p>
+							</div>
+							<div className="col-sm d-flex justify-content-end align-items-center">
+								<button
+									className="btn btn-danger me-4"
+									onClick={() => alertDelete(contact.id)}
+								>
+									Eliminar
+								</button>
+								<Link to={(`/editContact/${contact.id}`)} className="btn btn-warning">
+									Editar
+								</Link>
+							</div>
+						</div>
+					</div>
+				);
+			}) : <h1>No hay contactos</h1>}
+		</div>
+
+	);
+};
