@@ -6,7 +6,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
+
 			getContacts: async () => {
 				const store= getStore();
 				const action=getActions();
