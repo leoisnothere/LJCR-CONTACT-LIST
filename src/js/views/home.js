@@ -35,10 +35,10 @@ export const Home = () => {
 			{store.contacts.length > 0 ? store.contacts.map((contact) => {
 				return (
 					<div className="card" key={contact.id}>
-						<div className="card-body fullCard d-flex justify-content-around">
+						<div className="card-body fullCard d-flex justify-content-around" id="imgBox">
 							<div className="col-sm d-flex justify-content-center">
 								<img
-									src="https://picsum.photos/200/300?grayscale"
+									src="https://media.istockphoto.com/id/153696622/photo/happy-senior-man-giving-thumb-up.jpg?s=612x612&w=0&k=20&c=b2BI4P4vvgEK9AqxQ_gl7EpWnr1BomTJV24RqtGpaRo="
 									className=""
 									alt="..."
 								/>
