@@ -29,7 +29,7 @@ export const Home = () => {
 		<div className="container text-center mt-5">
 			<div className="d-flex justify-content-end mb-2">
 			<Link to={("/createContact")} className="btn btn-primary">
-						Agregar Nuevo Contacto
+						Agregar nuevo contacto
 				</Link>
 			</div>
 			{store.contacts.length > 0 ? store.contacts.map((contact) => {

@@ -28,7 +28,7 @@ const FormCreateContact = ({ createContacts, editContacts, id }) => {
                 Swal.fire({
                     position: "center",
                     icon: "success",
-                    title: "Contacto Editado",
+                    title: "Contacto editado",
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -52,7 +52,7 @@ const FormCreateContact = ({ createContacts, editContacts, id }) => {
             Swal.fire({
                 position: "center",
                 icon: "error",
-                title: "A ocurrido un error",
+                title: "Ha ocurrido un error",
                 showConfirmButton: false,
                 timer: 1000
             });
@@ -65,7 +65,7 @@ const FormCreateContact = ({ createContacts, editContacts, id }) => {
                 Swal.fire({
                     position: "center",
                     icon: "error",
-                    title: "A ocurrido un error",
+                    title: "Ha ocurrido un error",
                     showConfirmButton: false,
                     timer: 1000
                 });

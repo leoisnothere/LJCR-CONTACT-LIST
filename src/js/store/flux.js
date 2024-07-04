@@ -22,26 +22,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			createAgenda: async () => {
-				const store = getStore();
-				const action = getActions();
-				try {
-					const response = await fetch("https://playground.4geeks.com/contact/agendas/leoisnothere", {
-						method: "POST",
-						headers: {
-							'Content-type': 'application/json'
-						}
-					});
-					if(response.ok){
-						Swal.fire('Agenda creada', '', 'success')
-						action.getContacts();
-					}
-					
-				} catch (error) {
-					console.log(error);
-				}
-
-			},
 
 			addContacts: async (contact) => {
 				const store = getStore();
